@@ -16,7 +16,7 @@ env:
 
 jobs:
   feast:
-    runs-on: [self-hosted, linux]
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
@@ -42,7 +42,7 @@ jobs:
 
 
   training:
-    runs-on: [self-hosted, linux]
+    runs-on: ubuntu-latest
     needs: feast
     steps:
       - name: Checkout code
@@ -91,7 +91,7 @@ jobs:
           conda run -n mlops_2026 bash ./src/run_sh/promote.sh
 
   serving: 
-    runs-on: [self-hosted, linux]
+    runs-on: ubuntu-latest
     needs: training
 
     steps:
